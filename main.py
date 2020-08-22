@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import random
-from algorithms import bubble_sort
+from algorithms import bubble_sort, merge_sort
 
 #window
 root = Tk()
@@ -16,8 +16,7 @@ selected_alg = StringVar()
 
 #functions
 def drawData(data, colorArray):
-    canvas.delete('all')
-    canvas.create_text(canvas_width/2, 10, text='Bubble Sort') 
+    canvas.delete('all') 
     bar_w = canvas_width / len(data)
     scaleBars = [i / max(data) for i in data]
     for i, height in enumerate(scaleBars):
@@ -33,13 +32,15 @@ def generate():
     data = []
     size = int(sizeEntry.get())
     for _ in range(size):
-        data.append(random.randrange(1, size+1))
+        data.append(random.randrange(1, size + 1))
     drawData(data, ['red' for x in range(len(data))])
 
 def startAlgo():
     global data
     if algoMenu.get() == 'Bubble Sort':
         bubble_sort(data, drawData)
+    elif algoMenu.get() == 'Merge Sort':
+        merge_sort(data, drawData)
     
 #UI
 UI_frame = Frame(root, width=600, height=200, bg='grey')
