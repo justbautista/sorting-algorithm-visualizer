@@ -6,7 +6,7 @@ def bubble_sort(data, drawData):
             if data[j] > data[j+1]:
                 data[j], data[j+1] = data[j+1], data[j]
                 drawData(data, ['green' if x == j or x == j+1 else 'red' for x in range(len(data))])
-                time.sleep(0.0001)
+                time.sleep(0.1)
 
     drawData(data, ['green' for x in range(len(data))])
 
@@ -22,7 +22,7 @@ def merge_algo(data, left, right, drawData):
 
 def merge(data, left, middle, right, drawData):
     drawData(data, getColor(len(data), left, middle, right))
-    time.sleep(0.5)
+    time.sleep(0.1)
 
     leftPart = data[left:middle+1]
     rightPart = data[middle+1:right+1]
@@ -45,7 +45,7 @@ def merge(data, left, middle, right, drawData):
             j+=1
     
     drawData(data, ["green" if x >= left and x <= right else "black" for x in range(len(data))])
-    time.sleep(0.5)
+    time.sleep(0.1)
 
 def getColor(length, left, middle, right):
     colorArray = []
