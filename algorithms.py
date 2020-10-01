@@ -44,7 +44,7 @@ def merge(data, left, middle, right, drawData):
             data[k] = rightPart[j]
             j+=1
     
-    drawData(data, ["green" if x >= left and x <= right else "black" for x in range(len(data))])
+    drawData(data, ["green" if x >= left and x <= right else "red" for x in range(len(data))])
     time.sleep(0.1)
 
 def getColor(length, left, middle, right):
@@ -57,7 +57,7 @@ def getColor(length, left, middle, right):
             else:
                 colorArray.append("blue")
         else:
-            colorArray.append("black")
+            colorArray.append("red")
 
     return colorArray
 
